@@ -1,20 +1,14 @@
 
 public class Utility extends Board
 	{
-	protected int rent;
-	protected int number;
-	
-	public Utility()
-		{
-		
-		}
-	
-	public Utility(String n, int sp, int r, int num)
+	public Utility(String n, int sp, int p, int r, int num, String o)
 		{
 		name = n;
 		space = sp;
+		price = p;
 		rent = r;
 		number = num;
+		owner = o;
 		
 		if(num==1)
 			{
@@ -25,24 +19,4 @@ public class Utility extends Board
 			rent = Play.diceRoll()*10;	
 			}
 		}
-
-	public int getRent()
-	{
-		return rent;
-	}
-
-	public void setRent(int rent)
-	{
-		this.rent = rent;
-	}
-
-	public int getNumber()
-	{
-		return number;
-	}
-
-	public void setNumber(int number)
-	{
-		this.number = number;
-	}
 	}
