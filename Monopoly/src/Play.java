@@ -5,6 +5,19 @@ public class Play
 	static Player player;
 	static int sum;
 	static ArrayList <Board> spaces = new ArrayList <Board>();
+	static ArrayList <Board> inventory = new ArrayList <Board>();
+	
+	public static void delay()
+		{
+		try
+			{
+			Thread.sleep(1000);
+			} 
+		catch (InterruptedException e)
+			{
+			e.printStackTrace();
+			}
+		}
 	
 	public static int diceRoll()
 		{
@@ -16,9 +29,9 @@ public class Play
 	
 	public static void createPlayer()
 		{
-		Scanner input = new Scanner(System.in);
+		Scanner userInput = new Scanner(System.in);
 		System.out.println("What is your name?");
-		String name = input.nextLine();
+		String name = userInput.nextLine();
 		player = new Player(name, 1500, 1);
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
@@ -70,23 +83,87 @@ public class Play
 		spaces.add(new Property("Boardwalk", 40, 400, 50, "Orange", 0, null));
 		}
 	
+	public static void updateInventory()
+		{
+		inventory.add(spaces.get(player.getPosition()-1));
+		}
+	
+	public static void propertyPurchase()
+		{
+		System.out.println("You have landed on: " + spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice() + " and a rent of $" + spaces.get(player.getPosition()-1).getRent());
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Would you like to purchase this property?");
+		String answer = userInput.nextLine();
+		if(answer.toLowerCase().equals("yes"))
+			{
+			if(inventory.contains(spaces.get(player.getPosition())))
+				{
+				System.out.println("You already own this proeprty!");
+				}
+			else
+				{
+				updateInventory();	
+				player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
+				}
+			}
+		}
+	
+	public static void utilityPurchase()
+		{
+		System.out.println("You have landed on: " + spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice());
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Would you like to purchase this utilty?");
+		String answer = userInput.nextLine();
+		if(answer.toUpperCase().equals("yes"))
+			{
+			updateInventory();	
+			player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
+			}	
+		}
+	
 	public static void main(String [] args)
 		{
 		//System.out.println("Welcome to monopoly!");
 		createPlayer();
 		fillArray();
-		int i = 1;
-		while(i <= 40){
-		diceRoll();
-		//Advancing positions
-		System.out.println("Your roll: " + sum);
-		player.setPosition(player.getPosition()+sum);
-		System.out.println(player.getPosition());
-		//
-		if(spaces.get(player.getPosition()-1) instanceof Property)
+		delay();
+		boolean hi = true;
+		while(hi = true)
 			{
-			System.out.println("Shizzzzzzz");	
+			diceRoll();
+			//Advancing positions
+			player.setPosition(player.getPosition()+sum);
+			if(player.getPosition()>40)
+				{
+				int lap = player.getPosition() - 40;
+				player.setPosition(lap);
+				}
+			System.out.println("Your roll: " + sum);
+			System.out.println(player.getPosition());
+			delay();
+			//
+			if(spaces.get(player.getPosition()-1) instanceof Property)
+				{
+				propertyPurchase();
+				System.out.println("You now have: $" + player.getMoney());
+				System.out.println("Here is your inventory: ");
+				for(Board hello : inventory)
+					{
+					System.out.println(hello.getName());
+					}
+				}
+			
+			else if(spaces.get(player.getPosition()-1) instanceof Utility)
+				{
+				utilityPurchase();
+				System.out.println("You now have: $" + player.getMoney());
+				System.out.println("Here is your inventory: ");
+				for(Board hello : inventory)
+					{
+					System.out.println(hello.getName());
+					}
+				}
+			delay();
 			}
-		}
 		}
 	}
