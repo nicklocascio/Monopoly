@@ -1,6 +1,11 @@
 
 public class Property extends Board
-	{	
+	{
+	public Property()
+		{
+			
+		}
+
 	public Property(String n, int sp, int p, int r, String c, int h, String o)
 		{
 		name = n;

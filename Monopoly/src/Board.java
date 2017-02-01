@@ -4,12 +4,24 @@ public class Board
 	protected String name;
 	protected int space;
 	protected int price;
-	protected String color;
 	protected int rent;
+	protected String color;
 	protected int house;
-	protected String owner;
 	protected int number;
-
+	protected String owner;
+	protected int deduction;
+	
+	public Board()
+		{
+			
+		}
+	
+	public Board(String n, int sp)
+		{
+		name = n;
+		space = sp;
+		}
+	
 	public String getName()
 		{
 		return name;
@@ -78,6 +90,26 @@ public class Board
 	public void setNumber(int number)
 		{
 		this.number = number;
+		}
+	
+	public String getOwner()
+		{
+		return owner;
+		}
+
+	public void setOwner(String owner)
+		{
+		this.owner = owner;
+		}
+	
+	public int getDeduction()
+		{
+		return deduction;
+		}
+
+	public void setDeduction(int deduction)
+		{
+		this.deduction = deduction;
 		}
 
 	}
