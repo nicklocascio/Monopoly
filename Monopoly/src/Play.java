@@ -91,14 +91,14 @@ public class Play
 	public static void propertyPurchase()
 		{
 		System.out.println("You have landed on: " + spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice() + " and a rent of $" + spaces.get(player.getPosition()-1).getRent());
-		Scanner userInput = new Scanner(System.in);
+		Scanner userInput = new Scanner(System.in);	
 		System.out.println("Would you like to purchase this property?");
 		String answer = userInput.nextLine();
 		if(answer.toLowerCase().equals("yes"))
 			{
-			if(inventory.contains(spaces.get(player.getPosition())))
+			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
-				System.out.println("You already own this proeprty!");
+				System.out.println("You already own this property, you can't buy it again.");
 				}
 			else
 				{
@@ -120,7 +120,7 @@ public class Play
 			player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
 			}	
 		}
-	
+	//FIGURE OUT BOARDWALK
 	public static void main(String [] args)
 		{
 		//System.out.println("Welcome to monopoly!");
@@ -151,8 +151,7 @@ public class Play
 					{
 					System.out.println(hello.getName());
 					}
-				}
-			
+				}			
 			else if(spaces.get(player.getPosition()-1) instanceof Utility)
 				{
 				utilityPurchase();
@@ -162,6 +161,10 @@ public class Play
 					{
 					System.out.println(hello.getName());
 					}
+				}
+			else if(spaces.get(player.getPosition()-1) instanceof Railroad)
+				{
+				
 				}
 			delay();
 			}
