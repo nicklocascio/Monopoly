@@ -6,6 +6,7 @@ public class Play
 	static int sum;
 	static ArrayList <Board> spaces = new ArrayList <Board>();
 	static ArrayList <Board> inventory = new ArrayList <Board>();
+	static boolean bankrupt = false;
 	
 	public static void delay()
 		{
@@ -82,44 +83,7 @@ public class Play
 		spaces.add(new Tax("Luxury Tax", 39, 75));
 		spaces.add(new Property("Boardwalk", 40, 400, 50, "Orange", 0, null));
 		}
-	
-	public static void updateInventory()
-		{
-		inventory.add(spaces.get(player.getPosition()-1));
-		}
-	
-	public static void propertyPurchase()
-		{
-		System.out.println("You have landed on: " + spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice() + " and a rent of $" + spaces.get(player.getPosition()-1).getRent());
-		Scanner userInput = new Scanner(System.in);	
-		System.out.println("Would you like to purchase this property?");
-		String answer = userInput.nextLine();
-		if(answer.toLowerCase().equals("yes"))
-			{
-			if(inventory.contains(spaces.get(player.getPosition()-1)))
-				{
-				System.out.println("You already own this property, you can't buy it again.");
-				}
-			else
-				{
-				updateInventory();	
-				player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
-				}
-			}
-		}
-	
-	public static void utilityPurchase()
-		{
-		System.out.println("You have landed on: " + spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice());
-		Scanner userInput = new Scanner(System.in);
-		System.out.println("Would you like to purchase this utilty?");
-		String answer = userInput.nextLine();
-		if(answer.toUpperCase().equals("yes"))
-			{
-			updateInventory();	
-			player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
-			}	
-		}
+		
 	//FIGURE OUT BOARDWALK
 	public static void main(String [] args)
 		{
@@ -131,22 +95,24 @@ public class Play
 		while(hi = true)
 			{
 			diceRoll();
-			//Advancing positions
 			player.setPosition(player.getPosition()+sum);
+			System.out.println("You rolled a " + sum);
 			if(player.getPosition()>40)
 				{
 				int lap = player.getPosition() - 40;
 				player.setPosition(lap);
+				System.out.println("You have passed GO! Collect $200");
+				player.setMoney(player.getMoney()+200);
+				System.out.println("You have: $" + player.getMoney());
 				}
-			System.out.println("Your roll: " + sum);
-			System.out.println(player.getPosition());
+			System.out.println("You are now on space " + player.getPosition() + ", which is: ");
 			delay();
-			//
 			if(spaces.get(player.getPosition()-1) instanceof Property)
 				{
-				propertyPurchase();
-				System.out.println("You now have: $" + player.getMoney());
+				Purchase.propertyPurchase();
+				System.out.println("You have: $" + player.getMoney());
 				System.out.println("Here is your inventory: ");
+				System.out.println();
 				for(Board hello : inventory)
 					{
 					System.out.println(hello.getName());
@@ -154,9 +120,10 @@ public class Play
 				}			
 			else if(spaces.get(player.getPosition()-1) instanceof Utility)
 				{
-				utilityPurchase();
-				System.out.println("You now have: $" + player.getMoney());
+				Purchase.utilityPurchase();
+				System.out.println("You have: $" + player.getMoney());
 				System.out.println("Here is your inventory: ");
+				System.out.println();
 				for(Board hello : inventory)
 					{
 					System.out.println(hello.getName());
@@ -164,8 +131,16 @@ public class Play
 				}
 			else if(spaces.get(player.getPosition()-1) instanceof Railroad)
 				{
-				
+				Purchase.railroadPurchase();
+				System.out.println("You have: $" + player.getMoney());
+				System.out.println("Here is your inventory: ");
+				System.out.println();
+				for(Board hello : inventory)
+					{
+					System.out.println(hello.getName());
+					}
 				}
+			System.out.println();
 			delay();
 			}
 		}
