@@ -39,6 +39,13 @@ public class Purchase extends Play
 				{
 				updateInventory();	
 				player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
+				System.out.println("You have: $" + player.getMoney());
+				System.out.println();
+				System.out.println("Here is your inventory: ");
+				for(Board hello : inventory)
+					{
+					System.out.println(hello.getName());
+					}
 				}			
 			}
 		else if(answer.toLowerCase().equals("yes") && bankrupt == true)
@@ -75,6 +82,13 @@ public class Purchase extends Play
 				{
 				updateInventory();	
 				player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
+				System.out.println("You have: $" + player.getMoney());
+				System.out.println();
+				System.out.println("Here is your inventory: ");
+				for(Board hello : inventory)
+					{
+					System.out.println(hello.getName());
+					}
 				}			
 			}
 		else if(answer.toLowerCase().equals("yes") && bankrupt == true)
@@ -111,6 +125,13 @@ public class Purchase extends Play
 				{
 				updateInventory();	
 				player.setMoney(player.getMoney() - spaces.get(player.getPosition()-1).getPrice());
+				System.out.println("You have: $" + player.getMoney());
+				System.out.println();
+				System.out.println("Here is your inventory: ");
+				for(Board hello : inventory)
+					{
+					System.out.println(hello.getName());
+					}
 				}			
 			}
 		else if(answer.toLowerCase().equals("yes") && bankrupt == true)

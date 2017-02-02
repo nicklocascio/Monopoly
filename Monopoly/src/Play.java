@@ -37,21 +37,19 @@ public class Play
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
 	
-	//FIGURE OUT SOLUTION TO THE COLOR PROBLEM. Possibly an int for each group of color
-	
 	public static void fillArray()
 		{
-		spaces.add(new Board("GO", 1)); //
+		spaces.add(new Board("GO", 1));
 		spaces.add(new Property("Mediterranean Ave", 2, 60, 2, "Purple", 0, null));
 		spaces.add(new Chest("Community Chest", "There was a bank error in your favor! Collect $200!", 3, 0, 200));
 		spaces.add(new Property("Baltic Avenue", 4, 60, 4, "Purple", 0, null));
-		spaces.add(new Tax("Income Tax", 5, 200)); //
+		spaces.add(new Tax("Income Tax", 5, 200));
 		spaces.add(new Railroad("Reading Railroad", 6, 200, 25, 0, null));
 		spaces.add(new Property("Oriental Avenue", 7, 100, 6, "Light Blue", 0, null));
 		spaces.add(new Chance("Chance", "Pay a poor tax of $15.", 8, 15, 0));
 		spaces.add(new Property("Vermont Avenue", 9, 100, 6, "Light Blue", 0, null));
 		spaces.add(new Property("Connecticut Avenue", 10, 120, 8, "Light Blue", 0, null));
-		spaces.add(new Board("Just Visiting Jail", 11)); // 
+		spaces.add(new Board("Just Visiting Jail", 11));
 		spaces.add(new Property("St. Charles Place", 12, 140, 10, "Pink", 0, null));
 		spaces.add(new Utility("Electrical Company", 13, 150, 0, 0, null));	
 		spaces.add(new Property("States Avenue", 14, 140, 10, "Pink", 0, null));
@@ -83,7 +81,6 @@ public class Play
 		spaces.add(new Property("Boardwalk", 40, 400, 50, "Orange", 0, null));
 		}
 		
-	//FIGURE OUT BOARDWALK
 	public static void main(String [] args)
 		{
 		System.out.println("Welcome to monopoly!");
@@ -111,6 +108,7 @@ public class Play
 				player.setMoney(player.getMoney()+200);
 				System.out.println();
 				System.out.println("You have: $" + player.getMoney());
+				System.out.println();
 				}
 			if(spaces.get(player.getPosition()-1) instanceof Property || spaces.get(player.getPosition()-1) instanceof Utility || spaces.get(player.getPosition()-1) instanceof Railroad)
 				{
@@ -132,39 +130,20 @@ public class Play
 					delay();
 					}
 				}
-			//delay();
 			//Property
 			if(spaces.get(player.getPosition()-1) instanceof Property)
 				{
 				Purchase.propertyPurchase();
-				System.out.println("You have: $" + player.getMoney());
-				System.out.println("Here is your inventory: ");
-				for(Board hello : inventory)
-					{
-					System.out.println(hello.getName());
-					}
 				}		
 			//Utility
 			else if(spaces.get(player.getPosition()-1) instanceof Utility)
 				{
 				Purchase.utilityPurchase();
-				System.out.println("You have: $" + player.getMoney());
-				System.out.println("Here is your inventory: ");
-				for(Board hello : inventory)
-					{
-					System.out.println(hello.getName());
-					}
 				}
 			//Railroad
 			else if(spaces.get(player.getPosition()-1) instanceof Railroad)
 				{
 				Purchase.railroadPurchase();
-				System.out.println("You have: $" + player.getMoney());
-				System.out.println("Here is your inventory: ");
-				for(Board hello : inventory)
-					{
-					System.out.println(hello.getName());
-					}
 				}
 			//Chance and Chest
 			else if(spaces.get(player.getPosition()-1) instanceof Chance || spaces.get(player.getPosition()-1) instanceof Chest)
@@ -181,6 +160,32 @@ public class Play
 					System.out.println("You have: $" + player.getMoney());
 					}
 				}
+			//Tax
+			else if(spaces.get(player.getPosition()-1) instanceof Tax)
+				{
+				System.out.println("You landed on: " + spaces.get(player.getPosition()-1).getName()+ " for $" + spaces.get(player.getPosition()-1).getDeduction());
+				player.setMoney(player.getMoney()-spaces.get(player.getPosition()-1).getDeduction());
+				System.out.println("You have: $" + player.getMoney());
+				}
+			//Other
+			else if(spaces.get(player.getPosition()-1) instanceof Board)
+				{
+				if(spaces.get(player.getPosition()-1).getName().equals("Go To Jail"))
+					{
+					System.out.println(spaces.get(player.getPosition()-1).getName() + "! Lose $50 :(");
+					player.setMoney(player.getMoney()-50);
+					player.setPosition(11);
+					System.out.println("You have: $" + player.getMoney() + " and you're in jail on space 11.");
+					}
+				else if(spaces.get(player.getPosition()-1).getName().equals("GO"))
+					{
+						
+					}
+				else
+					{
+					System.out.println(spaces.get(player.getPosition()-1).getName() + ". This doesn't help you or hurt you!");
+					}
+				}			
 			System.out.println();
 			}
 		}
