@@ -23,6 +23,7 @@ public class Purchase extends Play
 	public static void propertyPurchase()
 		{
 		System.out.println(spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice() + " and a rent of $" + spaces.get(player.getPosition()-1).getRent());
+		System.out.println();
 		Scanner userInput = new Scanner(System.in);	
 		System.out.println("Would you like to purchase this property?");
 		String answer = userInput.nextLine();
@@ -31,6 +32,7 @@ public class Purchase extends Play
 			{
 			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
+				System.out.println();
 				System.out.println("You already own this property, you can't buy it again.");
 				}		
 			else
@@ -43,10 +45,12 @@ public class Purchase extends Play
 			{
 			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
+				System.out.println();
 				System.out.println("You already own this property, you can't buy it again.");
 				}
 			else
 				{
+				System.out.println();
 				System.out.println("Not so fast! You don't have enough to purchase that!");
 				}
 			}
@@ -55,6 +59,7 @@ public class Purchase extends Play
 	public static void utilityPurchase()
 		{
 		System.out.println(spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice());
+		System.out.println();
 		Scanner userInput = new Scanner(System.in);	
 		System.out.println("Would you like to purchase this utility?");
 		String answer = userInput.nextLine();
@@ -63,6 +68,7 @@ public class Purchase extends Play
 			{
 			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
+				System.out.println();
 				System.out.println("You already own this utility, you can't buy it again.");
 				}		
 			else
@@ -75,10 +81,12 @@ public class Purchase extends Play
 			{
 			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
+				System.out.println();
 				System.out.println("You already own this utility, you can't buy it again.");
 				}
 			else
 				{
+				System.out.println();
 				System.out.println("Not so fast! You don't have enough to purchase that!");
 				}
 			}	
@@ -87,14 +95,16 @@ public class Purchase extends Play
 	public static void railroadPurchase()
 		{
 		System.out.println(spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getPrice());
+		System.out.println();
 		Scanner userInput = new Scanner(System.in);	
-		System.out.println("Would you like to purchase this railraod?");
+		System.out.println("Would you like to purchase this railroad?");
 		String answer = userInput.nextLine();
 		checkBalance();
 		if(answer.toLowerCase().equals("yes") && bankrupt == false)
 			{
 			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
+				System.out.println();
 				System.out.println("You already own this railroad, you can't buy it again.");
 				}		
 			else
@@ -107,10 +117,12 @@ public class Purchase extends Play
 			{
 			if(inventory.contains(spaces.get(player.getPosition()-1)))
 				{
+				System.out.println();
 				System.out.println("You already own this railroad, you can't buy it again.");
 				}
 			else
 				{
+				System.out.println();
 				System.out.println("Not so fast! You don't have enough to purchase that!");
 				}
 			}

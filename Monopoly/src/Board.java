@@ -1,7 +1,8 @@
 
 public class Board
 	{
-	protected String name;
+	protected String name; 
+	protected String description;
 	protected int space;
 	protected int price;
 	protected int rent;
@@ -10,6 +11,7 @@ public class Board
 	protected int number;
 	protected String owner;
 	protected int deduction;
+	protected int reward;
 	
 	public Board()
 		{
@@ -30,6 +32,16 @@ public class Board
 	public void setName(String name)
 		{
 		this.name = name;
+		}
+	
+	public String getDescription()
+		{
+			return description;
+		}
+
+	public void setDescription(String description)
+		{
+			this.description = description;
 		}
 
 	public int getSpace()
@@ -111,5 +123,16 @@ public class Board
 		{
 		this.deduction = deduction;
 		}
+	
+	public int getReward()
+		{
+			return reward;
+		}
+
+	public void setReward(int reward)
+		{
+			this.reward = reward;
+		}
+
 
 	}
