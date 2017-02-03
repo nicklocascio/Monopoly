@@ -37,6 +37,7 @@ public class Play
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
 	
+	//For the name issue, consider maybe doing super for the name and adding a one parameter constructor in the board class with name where you select the correct set of names from an arraylist
 	public static void fillArray()
 		{
 		spaces.add(new Board("GO", 1));
