@@ -91,7 +91,7 @@ public class Play
 		while(hi = true)
 			{
 			Scanner roll = new Scanner(System.in);
-			System.out.println("Press any key to roll.");
+			System.out.println("Press enter to roll.");
 			String go = roll.nextLine();
 			System.out.println("Rolling...");
 			System.out.println();
