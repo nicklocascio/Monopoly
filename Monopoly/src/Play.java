@@ -1,10 +1,10 @@
 import java.util.*;
+import java.io.*;
 
-public class Play
+public class Play extends Edition
 	{
 	static Player player;
 	static int sum;
-	static ArrayList <Board> spaces = new ArrayList <Board>();
 	static ArrayList <Board> inventory = new ArrayList <Board>();
 	static boolean bankrupt = false;
 	
@@ -36,56 +36,11 @@ public class Play
 		player = new Player(name, 1500, 1);
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
-	
-	//For the name issue, consider maybe doing super for the name and adding a one parameter constructor in the board class with name where you select the correct set of names from an arraylist
-	public static void fillArray()
-		{
-		spaces.add(new Board("GO", 1));
-		spaces.add(new Property("Mediterranean Ave", 2, 60, 2, "Purple", 0, null));
-		spaces.add(new Chest("Community Chest", "There was a bank error in your favor! Collect $200!", 3, 0, 200));
-		spaces.add(new Property("Baltic Avenue", 4, 60, 4, "Purple", 0, null));
-		spaces.add(new Tax("Income Tax", 5, 200));
-		spaces.add(new Railroad("Reading Railroad", 6, 200, 25, 0, null));
-		spaces.add(new Property("Oriental Avenue", 7, 100, 6, "Light Blue", 0, null));
-		spaces.add(new Chance("Chance", "Pay a poor tax of $15.", 8, 15, 0));
-		spaces.add(new Property("Vermont Avenue", 9, 100, 6, "Light Blue", 0, null));
-		spaces.add(new Property("Connecticut Avenue", 10, 120, 8, "Light Blue", 0, null));
-		spaces.add(new Board("Just Visiting Jail", 11));
-		spaces.add(new Property("St. Charles Place", 12, 140, 10, "Pink", 0, null));
-		spaces.add(new Utility("Electrical Company", 13, 150, 0, 0, null));	
-		spaces.add(new Property("States Avenue", 14, 140, 10, "Pink", 0, null));
-		spaces.add(new Property("Virginia Avenue", 15, 160, 12, "Pink", 0, null));
-		spaces.add(new Railroad("Pennsylvania Railroad", 16, 200, 25, 0, null));		
-		spaces.add(new Property("St. James Place", 17, 180, 14, "Orange", 0, null));
-		spaces.add(new Chest("Community Chest", "Pay hospital $100", 18, 100, 0));
-		spaces.add(new Property("Tennessee Avenue", 19, 180, 14, "Orange", 0, null));
-		spaces.add(new Property("New York Avenue", 20, 200, 16, "Orange", 0, null));
-		spaces.add(new Board("Free Parking", 21));
-		spaces.add(new Property("Kentucky Avenue", 22, 220, 18, "Red", 0, null));
-		spaces.add(new Chance("Chance", "Your building loan matures. Collect $150.", 23, 0, 150));
-		spaces.add(new Property("Indiana Avenue", 24, 220, 18, "Red", 0, null));
-		spaces.add(new Property("Illinois Avenue", 25, 240, 20, "Red", 0, null));
-		spaces.add(new Railroad("B&O Railroad", 26, 200, 25, 0, null));		
-		spaces.add(new Property("Atlantic Avenue", 27, 260, 22, "Yellow", 0, null));
-		spaces.add(new Property("Ventnor Avenue", 28, 260, 22, "Yellow", 0, null));
-		spaces.add(new Utility("Water Works", 29, 150, 0, 0, null));
-		spaces.add(new Property("Marvin Gardens", 30, 280, 24, "Yellow", 0, null));
-		spaces.add(new Board("Go To Jail", 31));
-		spaces.add(new Property("Pacific Avenue", 32, 300, 26, "Green", 0, null));
-		spaces.add(new Property("North Carolina Avenue", 33, 300, 26, "Green", 0, null));
-		spaces.add(new Chest("Community Chest", "You have won second prize in a beauty contest! collect $10", 34, 0, 10));
-		spaces.add(new Property("Pennsylvania Avenue", 35, 320, 28, "Orange", 0, null));
-		spaces.add(new Railroad("Short Line Railroad", 36, 200, 25, 0, null));
-		spaces.add(new Chance("Chance", "Bank pays you a dividend of $50", 37, 0, 50));
-		spaces.add(new Property("Park Place", 38, 350, 35, "Dark Blue", 0, null));
-		spaces.add(new Tax("Luxury Tax", 39, 75));
-		spaces.add(new Property("Boardwalk", 40, 400, 50, "Orange", 0, null));
-		}
 		
-	public static void main(String [] args)
+	public static void main(String [] args) throws IOException
 		{
-		System.out.println("Welcome to monopoly!");
-		createPlayer();
+		//System.out.println("Welcome to monopoly!");
+		//createPlayer();
 		fillArray();
 		delay();
 		boolean hi = true;

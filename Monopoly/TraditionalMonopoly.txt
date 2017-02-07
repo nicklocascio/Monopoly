@@ -1,0 +1,41 @@
+3
+GO, 1
+Mediterranean Ave, 2, 60, 2, "Purple", 0, null, Property
+spaces.add(new Chest("Community Chest", "There was a bank error in your favor! Collect $200!", 3, 0, 200));
+Baltic Avenue, 4, 60, 4, "Purple", 0, null, Property
+spaces.add(new Tax("Income Tax", 5, 200));
+spaces.add(new Railroad("Reading Railroad", 6, 200, 25, 0, null));
+Oriental Avenue, 7, 100, 6, "Light Blue", 0, null, Property
+spaces.add(new Chance("Chance", "Pay a poor tax of $15.", 8, 15, 0));
+Vermont Avenue, 9, 100, 6, "Light Blue", 0, null, Property
+Connecticut Avenue, 10, 120, 8, "Light Blue", 0, null, Property
+spaces.add(new Board("Just Visiting Jail", 11));
+St. Charles Place, 12, 140, 10, "Pink", 0, null, Property
+spaces.add(new Utility("Electrical Company", 13, 150, 0, 0, null));	
+States Avenue, 14, 140, 10, "Pink", 0, null, Property
+Virginia Avenue, 15, 160, 12, "Pink", 0, null, Property
+spaces.add(new Railroad("Pennsylvania Railroad", 16, 200, 25, 0, null));		
+St. James Place, 17, 180, 14, "Orange", 0, null, Property
+spaces.add(new Chest("Community Chest", "Pay hospital $100", 18, 100, 0));
+Tennessee Avenue, 19, 180, 14, "Orange", 0, null, Property
+New York Avenue, 20, 200, 16, "Orange", 0, null, Property
+spaces.add(new Board("Free Parking", 21));
+Kentucky Avenue, 22, 220, 18, "Red", 0, null, Property
+spaces.add(new Chance("Chance", "Your building loan matures. Collect $150.", 23, 0, 150));
+Indiana Avenue, 24, 220, 18, "Red", 0, null, Property
+Illinois Avenue, 25, 240, 20, "Red", 0, null, Property
+spaces.add(new Railroad("B&O Railroad", 26, 200, 25, 0, null));		
+Atlantic Avenue, 27, 260, 22, "Yellow", 0, null, Property
+Ventnor Avenue, 28, 260, 22, "Yellow", 0, null, Property
+spaces.add(new Utility("Water Works", 29, 150, 0, 0, null));
+Marvin Gardens, 30, 280, 24, "Yellow", 0, null, Property
+spaces.add(new Board("Go To Jail", 31));
+Pacific Avenue, 32, 300, 26, "Green", 0, null, Property
+North Carolina Avenue, 33, 300, 26, "Green", 0, null, Property
+spaces.add(new Chest("Community Chest", "You have won second prize in a beauty contest! collect $10", 34, 0, 10));
+Pennsylvania Avenue, 35, 320, 28, "Orange", 0, null, Property
+spaces.add(new Railroad("Short Line Railroad", 36, 200, 25, 0, null));
+spaces.add(new Chance("Chance", "Bank pays you a dividend of $50", 37, 0, 50));
+Park Place, 38, 350, 35, "Dark Blue", 0, null, Property
+spaces.add(new Tax("Luxury Tax", 39, 75));
+Boardwalk, 40, 400, 50, "Orange", 0, null, Property
