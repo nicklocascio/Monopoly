@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+//OK DUDE ITS CRUNCH TIME. YOU NEED TO CREATE 12 CHEST/CHANCE CARDS THAT RANDOMLY SELECT. THEN YOU NEED TO REVERSE DIRECTION. ALSO GET ALBERTS DONE DUDE CMON!!!!!!
+
 public class Edition 
 	{
 	static ArrayList <Board> spaces = new ArrayList <Board>();

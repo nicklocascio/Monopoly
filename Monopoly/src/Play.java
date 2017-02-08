@@ -36,7 +36,25 @@ public class Play extends Edition
 		player = new Player(name, 1500, 1);
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
-		
+	
+	public static void advance()
+		{
+		diceRoll();
+		player.setPosition(player.getPosition()+sum);
+		System.out.println("You rolled a " + sum);
+		if(player.getPosition()>40)
+			{
+			int lap = player.getPosition() - 40;
+			player.setPosition(lap);
+			System.out.println();
+			System.out.println("You have passed GO! Collect $200");
+			player.setMoney(player.getMoney()+200);
+			System.out.println();
+			System.out.println("You have: $" + player.getMoney());
+			System.out.println();
+			}	
+		}
+	
 	public static void main(String [] args) throws IOException
 		{
 		System.out.println("Welcome to monopoly!");
@@ -44,7 +62,7 @@ public class Play extends Edition
 		fillArray();
 		delay();
 		boolean hi = true;
-		while(hi = true)
+		while(hi)
 			{
 			Scanner roll = new Scanner(System.in);
 			System.out.println("Press enter to roll.");
@@ -52,20 +70,7 @@ public class Play extends Edition
 			System.out.println("Rolling...");
 			System.out.println();
 			delay();
-			diceRoll();
-			player.setPosition(player.getPosition()+sum);
-			System.out.println("You rolled a " + sum);
-			if(player.getPosition()>40)
-				{
-				int lap = player.getPosition() - 40;
-				player.setPosition(lap);
-				System.out.println();
-				System.out.println("You have passed GO! Collect $200");
-				player.setMoney(player.getMoney()+200);
-				System.out.println();
-				System.out.println("You have: $" + player.getMoney());
-				System.out.println();
-				}
+			advance();
 			if(spaces.get(player.getPosition()-1) instanceof Property || spaces.get(player.getPosition()-1) instanceof Utility || spaces.get(player.getPosition()-1) instanceof Railroad)
 				{
 				System.out.println();
