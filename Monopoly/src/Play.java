@@ -39,8 +39,8 @@ public class Play extends Edition
 		
 	public static void main(String [] args) throws IOException
 		{
-		//System.out.println("Welcome to monopoly!");
-		//createPlayer();
+		System.out.println("Welcome to monopoly!");
+		createPlayer();
 		fillArray();
 		delay();
 		boolean hi = true;
