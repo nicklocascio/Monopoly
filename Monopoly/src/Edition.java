@@ -16,7 +16,7 @@ public class Edition
 		Scanner file = null;
 		if(edition == 1)
 			{
-			file = new Scanner(new File("TraditionalMonopoly.txt"));
+			file = new Scanner(new File("Traditional.txt"));
 			}
 		else if(edition == 2)
 			{
@@ -59,7 +59,7 @@ public class Edition
 				String owner = text[5];
 				spaces.add(new Railroad(name, space, price, rent, number, owner));
 				}
-			else if(text[0].equals("Community Chest") || text[0].equals("Chance"))
+			else if(text[text.length-1].equals("Chest") || text[text.length-1].equals("Chance"))
 				{
 				String name = text[0];
 				int space = Integer.parseInt(text[1]);
@@ -78,10 +78,10 @@ public class Edition
 				int deduction = Integer.parseInt(text[2]);
 				spaces.add(new Tax(name, space, deduction));
 				}
-			for(Board hi : spaces)
-				{
-				System.out.println(hi.getName());
-				}
+			}
+		for(Board hi : spaces)
+			{
+			System.out.println(hi.getName());
 			}
 		}
 	}

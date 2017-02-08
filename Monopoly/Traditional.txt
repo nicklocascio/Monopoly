@@ -12,9 +12,9 @@ Connecticut Avenue, 10, 120, 8, "Light Blue", 0, null, Property
 Just Visiting Jail, 11, Board
 St. Charles Place, 12, 140, 10, "Pink", 0, null, Property
 Electrical Company, 13, 150, 0, 0, null, Utility
-States Avenue, 14, 140, 10, "Pink", 0, null, Property	
+States Avenue, 14, 140, 10, "Pink", 0, null, Property
 Virginia Avenue, 15, 160, 12, "Pink", 0, null, Property
-Pennsylvania Railroad, 16, 200, 25, 0, null, Railroad		
+Pennsylvania Railroad, 16, 200, 25, 0, null, Railroad
 St. James Place, 17, 180, 14, "Orange", 0, null, Property
 Community Chest, 18
 Tennessee Avenue, 19, 180, 14, "Orange", 0, null, Property
@@ -24,7 +24,7 @@ Kentucky Avenue, 22, 220, 18, "Red", 0, null, Property
 Chance, 23
 Indiana Avenue, 24, 220, 18, "Red", 0, null, Property
 Illinois Avenue, 25, 240, 20, "Red", 0, null, Property
-B&O Railroad, 26, 200, 25, 0, null, Railroad		
+B&O Railroad, 26, 200, 25, 0, null, Railroad
 Atlantic Avenue, 27, 260, 22, "Yellow", 0, null, Property
 Ventnor Avenue, 28, 260, 22, "Yellow", 0, null, Property
 Water Works, 29, 150, 0, 0, null, Utility

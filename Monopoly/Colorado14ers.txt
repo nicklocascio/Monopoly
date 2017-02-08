@@ -1,4 +1,41 @@
-1
-Mt. Sherman, 2, 60, 2, Purple, 0, null, Property
-
-Pennsylvania Railroad, 16, 200, 25, 0, null, Railroad
+40
+Trailhead, 1, Board
+Mt. Sherman, 2, 60, 2, "Purple", 0, null, Property
+Trail Fortune, 3, Chest
+Quandary Peak, 4, 60, 4, "Purple", 0, null, Property
+CO Fourteeners Initiative, 5, 200, Tax
+LittleBear-Blanca 14er Traverse, 6, 200, 25, 0, null, Railroad
+Mt. Bierstadt, 7, 100, 6, "Light Blue", 0, null, Property
+Go for an Adventure, 8, Chance
+Torreys Peak, 9, 100, 6, "Light Blue", 0, null, Property
+Grays Peak, 10, 120, 8, "Light Blue", 0, null, Property
+Basecamp / Hiking Through, 11, Board
+Mt. Yale, 12, 140, 10, "Pink", 0, null, Property
+Pikes Peak (14er Toll Road), 13, 150, 0, 0, null, Utility
+Mt. Princeton, 14, 140, 10, "Pink", 0, null, Property
+Mt. Harvard, 15, 160, 12, "Pink", 0, null, Property
+Crestones 14er Traverse, 16, 200, 25, 0, null, Railroad
+Humboldt Peak, 17, 180, 14, "Orange", 0, null, Property
+Trail Fortune, 18, Chest
+Mt. Lindsey, 19, 180, 14, "Orange", 0, null, Property
+Kit Carson Peak, 20, 200, 16, "Orange", 0, null, Property
+Scenic Viewpoint, 21, Board
+Mt. Sneffels, 22, 220, 18, "Red", 0, null, Property
+Go for an Adventure, 23, Chance
+Uncompahgre Peak, 24, 220, 18, "Red", 0, null, Property
+Mt. Eolus, 25, 240, 20, "Red", 0, null, Property
+Wilson-El Diente 14er Traverse, 26, 200, 25, 0, null, Railroad
+Mount of the Holy Cross, 27, 260, 22, "Yellow", 0, null, Property
+Mt. Massive, 28, 260, 22, "Yellow", 0, null, Property
+Mt. Evans (14er Toll Road), 29, 150, 0, 0, null, Utility
+Mt. Elbert, 30, 280, 24, "Yellow", 0, null, Property
+Go to Basecamp, 31, Board
+Castle Peak, 32, 300, 26, "Green", 0, null, Property
+Snowmass Mountain, 33, 300, 26, "Green", 0, null, Property
+Trail Fortune, 34, Chest
+Pyramid Peak, 35, 320, 28, "Orange", 0, null, Property
+Maroon Bells 14er Traverse, 36, 200, 25, 0, null, Railroad
+Go for an Adventure, 37, Chance
+Longs Peak, 38, 350, 35, "Dark Blue", 0, null, Property
+You Lost a Boot, 39, 75, Tax
+Capitol Peak, 40, 400, 50, "Orange", 0, null, Property
