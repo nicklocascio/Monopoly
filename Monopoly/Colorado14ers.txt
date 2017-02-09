@@ -9,7 +9,7 @@ Mt. Bierstadt, 7, 100, 6, "Light Blue", 0, null, Property
 Go for an Adventure, 8, Chance
 Torreys Peak, 9, 100, 6, "Light Blue", 0, null, Property
 Grays Peak, 10, 120, 8, "Light Blue", 0, null, Property
-Basecamp / Hiking Through, 11, Board
+Basecamp / Hiking Through, 11, Jail
 Mt. Yale, 12, 140, 10, "Pink", 0, null, Property
 Pikes Peak (14er Toll Road), 13, 150, 0, 0, null, Utility
 Mt. Princeton, 14, 140, 10, "Pink", 0, null, Property
@@ -19,7 +19,7 @@ Humboldt Peak, 17, 180, 14, "Orange", 0, null, Property
 Trail Fortune, 18, Chest
 Mt. Lindsey, 19, 180, 14, "Orange", 0, null, Property
 Kit Carson Peak, 20, 200, 16, "Orange", 0, null, Property
-Scenic Viewpoint, 21, Board
+Scenic Viewpoint (Probation Center, 21, Freedom
 Mt. Sneffels, 22, 220, 18, "Red", 0, null, Property
 Go for an Adventure, 23, Chance
 Uncompahgre Peak, 24, 220, 18, "Red", 0, null, Property
@@ -29,7 +29,7 @@ Mount of the Holy Cross, 27, 260, 22, "Yellow", 0, null, Property
 Mt. Massive, 28, 260, 22, "Yellow", 0, null, Property
 Mt. Evans (14er Toll Road), 29, 150, 0, 0, null, Utility
 Mt. Elbert, 30, 280, 24, "Yellow", 0, null, Property
-Go to Basecamp, 31, Board
+Go to Basecamp, 31, Jail
 Castle Peak, 32, 300, 26, "Green", 0, null, Property
 Snowmass Mountain, 33, 300, 26, "Green", 0, null, Property
 Trail Fortune, 34, Chest

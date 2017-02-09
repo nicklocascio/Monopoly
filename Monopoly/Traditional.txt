@@ -19,7 +19,7 @@ St. James Place, 17, 180, 14, "Orange", 0, null, Property
 Community Chest, 18, Chest
 Tennessee Avenue, 19, 180, 14, "Orange", 0, null, Property
 New York Avenue, 20, 200, 16, "Orange", 0, null, Property
-Free Parking, 21, Board
+Free Parking (Probation Center), 21, Freedom
 Kentucky Avenue, 22, 220, 18, "Red", 0, null, Property
 Chance, 23, Chance
 Indiana Avenue, 24, 220, 18, "Red", 0, null, Property
@@ -29,7 +29,7 @@ Atlantic Avenue, 27, 260, 22, "Yellow", 0, null, Property
 Ventnor Avenue, 28, 260, 22, "Yellow", 0, null, Property
 Water Works, 29, 150, 0, 0, null, Utility
 Marvin Gardens, 30, 280, 24, "Yellow", 0, null, Property
-Go To Jail, 31, Board
+Go To Jail, 31, Jail
 Pacific Avenue, 32, 300, 26, "Green", 0, null, Property
 North Carolina Avenue, 33, 300, 26, "Green", 0, null, Property
 Community Chest, 34, Chest

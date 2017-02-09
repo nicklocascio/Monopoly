@@ -7,6 +7,7 @@ public class Play extends Edition
 	static int sum;
 	static ArrayList <Board> inventory = new ArrayList <Board>();
 	static boolean bankrupt = false;
+	static boolean inJail = false;
 	
 	public static void delay()
 		{
@@ -37,6 +38,15 @@ public class Play extends Edition
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
 	
+	public static void inJail()
+		{
+		if(spaces.get(player.getPosition()-1) instanceof Jail)
+			{
+			inJail = true;
+			}
+		
+		}
+	
 	public static void advance()
 		{
 		diceRoll();
@@ -44,16 +54,23 @@ public class Play extends Edition
 		System.out.println("You rolled a " + sum);
 		if(player.getPosition()>40)
 			{
-			int lap = player.getPosition() - 40;
-			player.setPosition(lap);
-			System.out.println();
-			System.out.println("You have passed GO! Collect $200");
-			player.setMoney(player.getMoney()+200);
-			System.out.println();
-			System.out.println("You have: $" + player.getMoney());
-			System.out.println();
+			passGO();
 			}	
+		System.out.println();
+		System.out.println("You are now on space " + player.getPosition() + ", which is: ");
 		}
+	
+	public static void passGO()
+		{		
+		int lap = player.getPosition() - 40;
+		player.setPosition(lap);
+		System.out.println();
+		System.out.println("You have passed GO! Collect $200");
+		player.setMoney(player.getMoney()+200);
+		System.out.println();
+		System.out.println("You have: $" + player.getMoney());
+		System.out.println();			
+		}	
 	
 	public static void main(String [] args) throws IOException
 		{
@@ -71,26 +88,6 @@ public class Play extends Edition
 			System.out.println();
 			delay();
 			advance();
-			if(spaces.get(player.getPosition()-1) instanceof Property || spaces.get(player.getPosition()-1) instanceof Utility || spaces.get(player.getPosition()-1) instanceof Railroad)
-				{
-				System.out.println();
-				System.out.println("You are now on space " + player.getPosition() + ", which is: ");
-				}
-			else if(spaces.get(player.getPosition()-1) instanceof Chance || spaces.get(player.getPosition()-1) instanceof Chest)
-				{
-				if(spaces.get(player.getPosition()-1) instanceof Chance)
-					{
-					System.out.println();
-					System.out.println("You are now on space " + player.getPosition() + ", which is a Chance card! Let's see what it is: ");
-					delay();
-					}
-				else
-					{
-					System.out.println();
-					System.out.println("You are now on space " + player.getPosition() + ", which is a Community Chest card! Let's see what it is: ");
-					delay();
-					}
-				}
 			//Property
 			if(spaces.get(player.getPosition()-1) instanceof Property)
 				{
@@ -106,46 +103,25 @@ public class Play extends Edition
 				{
 				Purchase.railroadPurchase();
 				}
-			//Chance and Chest
-			else if(spaces.get(player.getPosition()-1) instanceof Chance || spaces.get(player.getPosition()-1) instanceof Chest)
-				{
-				System.out.println(spaces.get(player.getPosition()-1).getDescription());
-				if(spaces.get(player.getPosition()-1).getDeduction()>0)
-					{
-					player.setMoney(player.getMoney()-spaces.get(player.getPosition()-1).getDeduction());
-					System.out.println("You have: $" + player.getMoney());
-					}
-				else if(spaces.get(player.getPosition()-1).getReward()>0)
-					{
-					player.setMoney(player.getMoney()+spaces.get(player.getPosition()-1).getReward());
-					System.out.println("You have: $" + player.getMoney());
-					}
-				}
 			//Tax
 			else if(spaces.get(player.getPosition()-1) instanceof Tax)
 				{
-				System.out.println("You landed on: " + spaces.get(player.getPosition()-1).getName()+ " for $" + spaces.get(player.getPosition()-1).getDeduction());
+				System.out.println(spaces.get(player.getPosition()-1).getName() + " for $" + spaces.get(player.getPosition()-1).getDeduction());
 				player.setMoney(player.getMoney()-spaces.get(player.getPosition()-1).getDeduction());
 				System.out.println("You have: $" + player.getMoney());
 				}
-			//Other
+			//Board
 			else if(spaces.get(player.getPosition()-1) instanceof Board)
 				{
-				if(spaces.get(player.getPosition()-1).getName().equals("Go To Jail"))
+				if(spaces.get(player.getPosition()-1).getName().equals("Chance") || spaces.get(player.getPosition()-1).getName().equals("Community Chest"))
 					{
-					System.out.println(spaces.get(player.getPosition()-1).getName() + "! Lose $50 :(");
-					player.setMoney(player.getMoney()-50);
-					player.setPosition(11);
-					System.out.println("You have: $" + player.getMoney() + " and you're in jail on space 11.");
+					System.out.println(spaces.get(player.getPosition()-1).getName() + "! Coming soon!!");
 					}
 				else if(spaces.get(player.getPosition()-1).getName().equals("GO"))
 					{
-						
+					System.out.println("GO!");	
 					}
-				else
-					{
-					System.out.println(spaces.get(player.getPosition()-1).getName() + ". This doesn't help you or hurt you!");
-					}
+				//So now you need jail and free parking and visiting jail
 				}			
 			System.out.println();
 			}

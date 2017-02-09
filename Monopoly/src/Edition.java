@@ -73,6 +73,18 @@ public class Edition
 				int space = Integer.parseInt(text[1]);
 				spaces.add(new Board(name, space));
 				}
+			else if(text[text.length-1].equals("Jail"))
+				{
+				String name = text[0];
+				int space = Integer.parseInt(text[1]);
+				spaces.add(new Jail(name, space));
+				}
+			else if(text[text.length-1].equals("Freedom"))
+				{
+				String name = text[0];
+				int space = Integer.parseInt(text[1]);
+				spaces.add(new Freedom(name, space));
+				}
 			else if(text[text.length-1].equals("Tax"))
 				{
 				String name = text[0];
