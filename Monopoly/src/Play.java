@@ -40,33 +40,52 @@ public class Play extends Edition
 	
 	public static void inJail()
 		{
-		if(spaces.get(player.getPosition()-1) instanceof Jail)
-			{
-			inJail = true;
-			}
-		
+				
 		}
 	
 	public static void advance()
 		{
 		diceRoll();
-		player.setPosition(player.getPosition()+sum);
-		System.out.println("You rolled a " + sum);
-		if(player.getPosition()>40)
+		if(inJail == false)
 			{
-			passGO();
-			}	
+			player.setPosition(player.getPosition()+sum);
+			System.out.println("You rolled a " + sum);
+			if(player.getPosition()>40)
+				{
+				passGO();
+				}	
+			}
+		else
+			{
+			player.setPosition(player.getPosition()-sum);
+			System.out.println("You rolled a " + sum);
+			if(player.getPosition()<1)
+				{
+				passGO();
+				}	
+			}
 		System.out.println();
 		System.out.println("You are now on space " + player.getPosition() + ", which is: ");
 		}
 	
 	public static void passGO()
-		{		
-		int lap = player.getPosition() - 40;
-		player.setPosition(lap);
-		System.out.println();
-		System.out.println("You have passed GO! Collect $200");
-		player.setMoney(player.getMoney()+200);
+		{	
+		if(inJail == false)
+			{
+			int lap = player.getPosition() - 40;
+			player.setPosition(lap);
+			System.out.println();
+			System.out.println("You have passed GO! Collect $200");
+			player.setMoney(player.getMoney()+200);
+			}
+		else
+			{
+			int lap = 40 - (player.getPosition()*-1);
+			player.setPosition(lap);
+			System.out.println();
+			System.out.println("You have passed GO, but since you're a bad guy you lose $200");
+			player.setMoney(player.getMoney()-200);
+			}
 		System.out.println();
 		System.out.println("You have: $" + player.getMoney());
 		System.out.println();			
@@ -77,17 +96,28 @@ public class Play extends Edition
 		System.out.println("Welcome to monopoly!");
 		createPlayer();
 		fillArray();
-		delay();
 		boolean hi = true;
 		while(hi)
 			{
+			System.out.println(inJail);
 			Scanner roll = new Scanner(System.in);
 			System.out.println("Press enter to roll.");
 			String go = roll.nextLine();
-			System.out.println("Rolling...");
-			System.out.println();
-			delay();
-			advance();
+			if(go.equals("jail"))
+				{
+				player.setPosition(31);
+				}
+			else if(go.equals("freedom"))
+				{
+				player.setPosition(21);
+				}
+			else
+				{
+				System.out.println("Rolling...");
+				System.out.println();
+				delay();
+				advance();
+				}
 			//Property
 			if(spaces.get(player.getPosition()-1) instanceof Property)
 				{
@@ -121,8 +151,20 @@ public class Play extends Edition
 					{
 					System.out.println("GO!");	
 					}
+				else if(spaces.get(player.getPosition()-1).getName().equals("Go To Jail"))
+					{
+					System.out.println(spaces.get(player.getPosition()-1).getName());
+					player.setPosition(11);
+					inJail = true;
+					System.out.println("You are now in jail on space 11 and you will now move in the reverse direction.");
+					}
+				else if(spaces.get(player.getPosition()-1).getName().equals("Free Parking (Probation Center)"))
+					{
+					inJail = false;
+					System.out.println(spaces.get(player.getPosition()-1).getName() + ". Your probation officer believes that you have learned your lesson. You may resume normal play stay out of trouble.");
+					}
 				//So now you need jail and free parking and visiting jail
-				}			
+				}		
 			System.out.println();
 			}
 		}

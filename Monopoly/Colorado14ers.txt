@@ -19,7 +19,7 @@ Humboldt Peak, 17, 180, 14, "Orange", 0, null, Property
 Trail Fortune, 18, Chest
 Mt. Lindsey, 19, 180, 14, "Orange", 0, null, Property
 Kit Carson Peak, 20, 200, 16, "Orange", 0, null, Property
-Scenic Viewpoint (Probation Center, 21, Freedom
+Scenic Viewpoint (Probation Center, 21, Board
 Mt. Sneffels, 22, 220, 18, "Red", 0, null, Property
 Go for an Adventure, 23, Chance
 Uncompahgre Peak, 24, 220, 18, "Red", 0, null, Property
@@ -29,7 +29,7 @@ Mount of the Holy Cross, 27, 260, 22, "Yellow", 0, null, Property
 Mt. Massive, 28, 260, 22, "Yellow", 0, null, Property
 Mt. Evans (14er Toll Road), 29, 150, 0, 0, null, Utility
 Mt. Elbert, 30, 280, 24, "Yellow", 0, null, Property
-Go to Basecamp, 31, Jail
+Go to Basecamp, 31, Board
 Castle Peak, 32, 300, 26, "Green", 0, null, Property
 Snowmass Mountain, 33, 300, 26, "Green", 0, null, Property
 Trail Fortune, 34, Chest
