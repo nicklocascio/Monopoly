@@ -38,11 +38,6 @@ public class Play extends Edition
 		System.out.println("Here is your info: " + player.getName() + ", $" + player.getMoney() + ", on space " + player.getPosition());
 		}
 	
-	public static void inJail()
-		{
-				
-		}
-	
 	public static void advance()
 		{
 		diceRoll();
@@ -75,7 +70,7 @@ public class Play extends Edition
 			int lap = player.getPosition() - 40;
 			player.setPosition(lap);
 			System.out.println();
-			System.out.println("You have passed GO! Collect $200");
+			System.out.println("You have passed " + spaces.get(0).getName() + ". Collect $200");	
 			player.setMoney(player.getMoney()+200);
 			}
 		else
@@ -83,7 +78,7 @@ public class Play extends Edition
 			int lap = 40 - (player.getPosition()*-1);
 			player.setPosition(lap);
 			System.out.println();
-			System.out.println("You have passed GO, but since you're a bad guy you lose $200");
+			System.out.println("You have passed " + spaces.get(0).getName() + ", but since you're a bad guy, you lose $200");
 			player.setMoney(player.getMoney()-200);
 			}
 		System.out.println();
@@ -99,7 +94,7 @@ public class Play extends Edition
 		boolean hi = true;
 		while(hi)
 			{
-			System.out.println(inJail);
+//			System.out.println(inJail);
 			Scanner roll = new Scanner(System.in);
 			System.out.println("Press enter to roll.");
 			String go = roll.nextLine();
@@ -143,13 +138,17 @@ public class Play extends Edition
 			//Board
 			else if(spaces.get(player.getPosition()-1) instanceof Board)
 				{
-				if(spaces.get(player.getPosition()-1).getName().equals("Chance") || spaces.get(player.getPosition()-1).getName().equals("Community Chest"))
+				if(spaces.get(player.getPosition()-1).getName().equals("Chance") || spaces.get(player.getPosition()-1).getName().equals("Community Chest") || spaces.get(player.getPosition()-1).getName().equals("Trail Fortune") || spaces.get(player.getPosition()-1).getName().equals("Go for an Adventure"))
 					{
 					System.out.println(spaces.get(player.getPosition()-1).getName() + "! Coming soon!!");
 					}
-				else if(spaces.get(player.getPosition()-1).getName().equals("GO"))
+				else if(spaces.get(player.getPosition()-1).getName().equals("GO") || spaces.get(player.getPosition()-1).getName().equals("Trailhead"))
 					{
-					System.out.println("GO!");	
+					System.out.println(spaces.get(player.getPosition()-1).getName());	
+					}
+				else if(player.getPosition() == 11)
+					{
+					System.out.println(spaces.get(player.getPosition()-1).getName() + ". Continue on you're not in trouble!");
 					}
 				else if(spaces.get(player.getPosition()-1).getName().equals("Go To Jail") || spaces.get(player.getPosition()-1).getName().equals("Go to Basecamp"))
 					{
@@ -160,10 +159,16 @@ public class Play extends Edition
 					}
 				else if(spaces.get(player.getPosition()-1).getName().equals("Free Parking (Probation Center)") || spaces.get(player.getPosition()-1).getName().equals("Scenic Viewpoint (Probation Center)"))
 					{
-					inJail = false;
-					System.out.println(spaces.get(player.getPosition()-1).getName() + ". Your probation officer believes that you have learned your lesson. You may resume normal play stay out of trouble.");
+					if(inJail == true)
+						{
+						inJail = false;
+						System.out.println(spaces.get(player.getPosition()-1).getName() + " on space 21. Your probation officer believes that you have learned your lesson. You may resume normal play. Stay out of trouble.");
+						}	
+					else if(inJail == false)
+						{
+						System.out.println(spaces.get(player.getPosition()-1).getName() + " Don't worry about a thing!");
+						}						
 					}
-//				So now you need jail and free parking and visiting jail
 				}		
 			System.out.println();
 			}

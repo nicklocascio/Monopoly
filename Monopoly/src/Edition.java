@@ -1,9 +1,11 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Edition 
 	{
 	static ArrayList <Board> spaces = new ArrayList <Board>();
+	static Scanner file = null;
 	
 	public static void fillArray() throws IOException
 		{
@@ -12,8 +14,6 @@ public class Edition
 		System.out.println("1) Traditional");
 		System.out.println("2) Colorado 14ers");
 		int edition = input.nextInt();
-		String chice = "";
-		Scanner file = null;
 		if(edition == 1)
 			{
 			file = new Scanner(new File("Traditional.txt"));
@@ -79,9 +79,9 @@ public class Edition
 				spaces.add(new Tax(name, space, deduction));
 				}
 			}
-		for(Board hi : spaces)
-			{
-			System.out.println(hi.getName());
-			}
+//		for(Board hi : spaces)
+//			{
+//			System.out.println(hi.getName());
+//			}
 		}
 	}
