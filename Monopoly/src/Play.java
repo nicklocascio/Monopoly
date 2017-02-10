@@ -151,19 +151,19 @@ public class Play extends Edition
 					{
 					System.out.println("GO!");	
 					}
-				else if(spaces.get(player.getPosition()-1).getName().equals("Go To Jail"))
+				else if(spaces.get(player.getPosition()-1).getName().equals("Go To Jail") || spaces.get(player.getPosition()-1).getName().equals("Go to Basecamp"))
 					{
 					System.out.println(spaces.get(player.getPosition()-1).getName());
 					player.setPosition(11);
 					inJail = true;
 					System.out.println("You are now in jail on space 11 and you will now move in the reverse direction.");
 					}
-				else if(spaces.get(player.getPosition()-1).getName().equals("Free Parking (Probation Center)"))
+				else if(spaces.get(player.getPosition()-1).getName().equals("Free Parking (Probation Center)") || spaces.get(player.getPosition()-1).getName().equals("Scenic Viewpoint (Probation Center)"))
 					{
 					inJail = false;
 					System.out.println(spaces.get(player.getPosition()-1).getName() + ". Your probation officer believes that you have learned your lesson. You may resume normal play stay out of trouble.");
 					}
-				//So now you need jail and free parking and visiting jail
+//				So now you need jail and free parking and visiting jail
 				}		
 			System.out.println();
 			}

@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-//OK DUDE ITS CRUNCH TIME. YOU NEED TO CREATE 12 CHEST/CHANCE CARDS THAT RANDOMLY SELECT. THEN YOU NEED TO REVERSE DIRECTION. ALSO GET ALBERTS DONE DUDE CMON!!!!!!
-
 public class Edition 
 	{
 	static ArrayList <Board> spaces = new ArrayList <Board>();
@@ -73,18 +71,6 @@ public class Edition
 				int space = Integer.parseInt(text[1]);
 				spaces.add(new Board(name, space));
 				}
-//			else if(text[text.length-1].equals("Jail"))
-//				{
-//				String name = text[0];
-//				int space = Integer.parseInt(text[1]);
-//				spaces.add(new Jail(name, space));
-//				}
-//			else if(text[text.length-1].equals("Freedom"))
-//				{
-//				String name = text[0];
-//				int space = Integer.parseInt(text[1]);
-//				spaces.add(new Freedom(name, space));
-//				}
 			else if(text[text.length-1].equals("Tax"))
 				{
 				String name = text[0];
@@ -93,9 +79,9 @@ public class Edition
 				spaces.add(new Tax(name, space, deduction));
 				}
 			}
-//		for(Board hi : spaces)
-//			{
-//			System.out.println(hi.getName());
-//			}
+		for(Board hi : spaces)
+			{
+			System.out.println(hi.getName());
+			}
 		}
 	}
